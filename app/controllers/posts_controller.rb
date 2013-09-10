@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+
 def new
   @post = Post.new
 end
@@ -15,7 +17,7 @@ def create
 end
 
 def edit
-  @post = Post.find(params:[:id])
+  @post = Post.find(params[:id])
 end
 
 def update
